@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Académico - Prolog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Sistema Académico Inteligente</h1>
+            <div class="subtitle">Sistema de Gestión de Cursos con Prolog</div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="mode-selector">
+                    <button class="mode-btn active" onclick="showSection('alumno')">
+                        👨‍🎓 Modo Alumno
+                    </button>
+                    <button class="mode-btn" onclick="showSection('tutor')">
+                        👨‍🏫 Modo Tutor
+                    </button>
+                    <button class="mode-btn" onclick="showSection('config')">
+                        ⚙️ Configuración
+                    </button>
+                </div>
+
+                <div class="info-panel">
+                    <h3>Base de Conocimiento</h3>
+                    <p>• Sistema de prerrequisitos</p>
+                    <p>• Control por semestre</p>
+                    <p>• Validación automática</p>
+                    <p id="kb-status">⏳ Cargando...</p>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <!-- MODO ALUMNO -->
+                <div id="alumno-section" class="section active">
+                    <h2>Modo Alumno</h2>
+                    
+                    <div class="form-group">
+                        <label for="alumno-select">Selecciona tu nombre:</label>
+                        <select id="alumno-select">
+                            <option value="">-- Selecciona un alumno --</option>
+                        </select>
+                    </div>
+
+                    <div id="alumno-info" class="hidden">
+                        <div class="form-group">
+                            <button class="btn" onclick="verCursosDisponibles()">
+                                📚 Ver Cursos Disponibles
+                            </button>
+                            <button class="btn btn-secondary" onclick="verHistorial()">
+                                📋 Ver Mi Historial
+                            </button>
+                        </div>
+
+                        <div id="alumno-results" class="results">
+                            <div class="result-item">
+                                <p>Selecciona una opción para ver los resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODO TUTOR -->
+                <div id="tutor-section" class="section">
+                    <h2>Modo Tutor</h2>
+                    
+                    <div class="form-group">
+                        <label for="tutor-alumno-select">Selecciona alumno:</label>
+                        <select id="tutor-alumno-select">
+                            <option value="">-- Selecciona un alumno --</option>
+                        </select>
+                    </div>
+
+                    <div id="tutor-actions" class="hidden">
+                        <div class="form-group">
+                            <button class="btn" onclick="verProgresoAlumno()">
+                                📊 Ver Progreso Completo
+                            </button>
+                            <button class="btn btn-secondary" onclick="seleccionarCursos()">
+                                🎯 Seleccionar Cursos
+                            </button>
+                        </div>
+
+                        <div id="tutor-results" class="results">
+                            <div class="result-item">
+                                <p>Selecciona una opción para ver los resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONFIGURACIÓN -->
+                <div id="config-section" class="section">
+                    <h2>Configuración</h2>
+                    
+                    <div class="file-input-container">
+                        <label class="file-input-label">Cargar Base de Conocimiento</label>
+                        <div class="file-input" onclick="document.getElementById('file-input').click()">
+                            📁 Haz clic para seleccionar archivo .pl
+                        </div>
+                        <input type="file" id="file-input" accept=".pl" class="visually-hidden">
+                    </div>
+
+                    <div id="config-results" class="results">
+                        <div class="result-item">
+                            <strong>⏳ Inicializando sistema Prolog...</strong>
+                            <p>Por favor espera mientras se carga el sistema.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tau-Prolog desde CDN (sin warnings) -->
+    <script src="https://cdn.jsdelivr.net/npm/tau-prolog@0.3.2/modules/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tau-prolog@0.3.2/modules/lists.min.js"></script>
+    
+    <!-- Nuestro código -->
+    <script src="app.js"></script>
+</body>
+</html>
