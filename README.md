@@ -20,7 +20,7 @@ El sistema utiliza una base de conocimiento (`base_conocimiento_curso.pl`) que d
 ````
 ## Instalación
 ````
-*https://github.com/MrStinGeRYT/Tarea-Prolog-Seleccion-de-Cursos-con-Prolog-y-Tau-Prolog-.git*
+https://github.com/MrStinGeRYT/Tarea-Prolog-Seleccion-de-Cursos-con-Prolog-y-Tau-Prolog-.git
 ````
 ## Uso de la aplicación
 ````
@@ -41,4 +41,5 @@ Tarea Prolog
 ├── tau-prolog-local.js # Dependencia local de Tau Prolog
 ├── lists.js # Módulo auxiliar de listas
 └── README.md # Documento de descripción del proyecto
+
 ````
